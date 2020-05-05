@@ -1,7 +1,17 @@
-let V = [5, -3]
+let V = [5, -3];
 
-let L = Math.sqrt(V[0] * V[0] + V[1] * V[1]) 
-V[0] /= L
-V[1] /= L
+let W = [-2, 6];
 
-console.log(V)
+let A = [
+  V[0] + W[0],
+  V[1] + W[1]
+]
+
+console.log(A)
+
+let S = [
+  V[0] - W[0],
+  V[0] - W[1]
+]
+
+console.log(S)
