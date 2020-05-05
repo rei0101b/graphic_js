@@ -1,10 +1,8 @@
-let V = [5, -3];
+let v0 = [1,5]
+let v1 = [-2, 8]
 
-let scalar = 2.0
+console.log(dot(v0, v1))
 
-let W = [
-  V[0] * scalar,
-  V[1] * scalar
-]
-
-console.log(W)
+function dot(v0, v1) {
+  return (v0[0] * v1[0]) + (v0[1] * v1[1])
+}
