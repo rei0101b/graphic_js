@@ -1,18 +1,9 @@
+let A = [-2, 2]
+let B = [3, -1]
 
-let r = 2
-let theta = 120
-let A = [0.0, 0.0];
-let radian = degToRad(theta);
-
-let s = Math.sin(radian);
-let c = Math.cos(radian);
-
-let B = [
-  A[0] + c * r,
-  A[1] + s * r,
+let V = [
+  B[0] - A[0],
+  B[1] - A[1],
 ]
 
-function degTorad(theta) {
-  return theta * Math.PI / 180
-}
-
+console.log(V)
