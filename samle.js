@@ -1,7 +1,6 @@
-let degrees = 45
+let rad = 0 * Math.PI / 180;
 
-let radian = degToRad(degrees)
-
-function degToRad(degrees) {
-  return degrees * Math.PI / 180
-}
+let s = Math.sin(rad);
+let c = Math.cos(rad);
+console.log(s)
+console.log(c)
