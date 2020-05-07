@@ -15,14 +15,18 @@
   }
 
   function render() {
-    let points = [
-      100, 100,
-      300, 100,
-      100, 300,
-      300, 500
-    ]
+    const POINT_COUNT = 5
+    let points = [];
 
+    for (let i = 0; i < POINT_COUNT; ++i) {
+      points.push(generateRandomInt(300), generateRandomInt(300))
+    }
     drawPolygon(points, '#119900')
+  }
+
+  function generateRandomInt(range) {
+    let random = Math.random()
+    return Math.floor(random * range)
   }
 
   function drawPolygon(points, color) {
