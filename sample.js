@@ -7,11 +7,6 @@
     render()
   }, false)
 
-  function render() {
-    initialize()
-    render()
-  }
-
   function initialize() {
     canvas = document.body.querySelector('#main_canvas')
     canvas.width = window.innerWidth
@@ -20,7 +15,33 @@
   }
 
   function render() {
-    drawLine(100, 100, 200, 200, '#ff0000')
+    let points = [
+      100, 100,
+      300, 100,
+      100, 300,
+      300, 500
+    ]
+
+    drawPolygon(points, '#119900')
+  }
+
+  function drawPolygon(points, color) {
+    if (Array.isArray(points) !== true || points.length < 6) {
+      return
+    }
+
+    if (color != null) {
+      ctx.fillStyle = color
+    }
+
+    ctx.beginPath()
+    ctx.moveTo(points[0], points[1])
+    for(let i = 2; i < points.length; i += 2) {
+      ctx.lineTo(points[i], points[i + 1])
+    }
+
+    ctx.closePath()
+    ctx.fill();
   }
 
   function drawRect(x, y, width, height, color) {
