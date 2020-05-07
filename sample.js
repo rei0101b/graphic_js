@@ -15,9 +15,47 @@
   }
 
   function render() {
-    let startRadian = Math.random() * Math.PI * 2
-    let endRadian = Math.random() * Math.PI * 2
-    drawFan(200, 200, 100, startRadian, endRadian, '#000')
+    // 二次ベジェ曲線を描画する
+    drawQuadraticBezier(
+      100, 100, // 始点
+      100, 300, // 終点
+      200, 200, // 制御点
+      '#ff9900'
+    );
+    // 三次ベジェ曲線を描画する
+    drawCubicBezier(
+      300, 100, // 始点
+      300, 300, // 終点
+      500, 100, // 始点の制御点
+      500, 400, // 終点の制御点
+      '#ff9900'
+    );
+  }
+
+  function drawQuadraticBezier(x1, y1, x2, y2, cx, cy, color, width = 1) {
+    if(color != null) {
+      ctx.strokeStyle = color
+    }
+
+    ctx.lineWidth = width
+    ctx.beginPath()
+    ctx.moveTo(x1,y1)
+    ctx.quadraticCurveTo(cx, cy, x2, y2)
+    ctx.closePath()
+    ctx.stroke()
+    
+  }
+
+  function drawCubicBezier(x1, y1, x2, y2, cx1, cy1, cx2, cy2, color, width = 1) {
+    if (color != null) {
+      ctx.strokeStyle = color
+    }
+    ctx.lineWidth = width;
+    ctx.beginPath()
+    ctx.moveTo(x1, y1)
+    ctx.bezierCurveTo(cx1, cy1, cx2, cy2, x2, y2)
+    ctx.closePath()
+    ctx.stroke()
   }
 
   function drawCircle(x, y, radius, color) {
@@ -26,7 +64,6 @@
     }
 
     ctx.beginPath()
-    ctx.moveTo(x, y)
     ctx.arc(x, y, radius, 0.0, Math.PI * 2.0)
 
     ctx.closePath()
@@ -42,7 +79,7 @@
     ctx.moveTo(x,y)
     ctx.arc(x, y, radius, startRadian, endRadian)
     ctx.closePath()
-    ctx.fill();
+    ctx.stroke();
   }
 
   function generateRandomInt(range) {
