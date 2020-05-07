@@ -15,7 +15,9 @@
   }
 
   function render() {
-    drawCircle(100, 100, 10, '#000')
+    let startRadian = Math.random() * Math.PI * 2
+    let endRadian = Math.random() * Math.PI * 2
+    drawFan(200, 200, 100, startRadian, endRadian, '#000')
   }
 
   function drawCircle(x, y, radius, color) {
@@ -24,10 +26,23 @@
     }
 
     ctx.beginPath()
+    ctx.moveTo(x, y)
     ctx.arc(x, y, radius, 0.0, Math.PI * 2.0)
 
     ctx.closePath()
     ctx.fill()
+  }
+
+  function drawFan(x, y, radius, startRadian, endRadian, color) {
+    if (color != null) {
+      ctx.fillStyle = color
+    }
+
+    ctx.beginPath()
+    ctx.moveTo(x,y)
+    ctx.arc(x, y, radius, startRadian, endRadian)
+    ctx.closePath()
+    ctx.fill();
   }
 
   function generateRandomInt(range) {
