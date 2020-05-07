@@ -29,3 +29,12 @@ function crooss(v0, v1) {
     v0[0] * v1[1] - v0[1] * v1[0],
   ]
 }
+
+function rotate2D(vec, radian) {
+  let sin = Math.sin(radian)
+  let cos = Math.cos(radian)
+  return [
+    vec[0] * cos + vec[1] * -sin,
+    vec[0] * sin + vec[1] * cos
+  ]
+}
