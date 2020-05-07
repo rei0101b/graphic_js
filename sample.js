@@ -15,13 +15,19 @@
   }
 
   function render() {
-    const POINT_COUNT = 5
-    let points = [];
+    drawCircle(100, 100, 10, '#000')
+  }
 
-    for (let i = 0; i < POINT_COUNT; ++i) {
-      points.push(generateRandomInt(300), generateRandomInt(300))
+  function drawCircle(x, y, radius, color) {
+    if (color != null) {
+      ctx.fillStyle = color
     }
-    drawPolygon(points, '#119900')
+
+    ctx.beginPath()
+    ctx.arc(x, y, radius, 0.0, Math.PI * 2.0)
+
+    ctx.closePath()
+    ctx.fill()
   }
 
   function generateRandomInt(range) {
